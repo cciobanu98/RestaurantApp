@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: cciobanu98/counterservice
+  repository: cciobanu98/menu-service
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
