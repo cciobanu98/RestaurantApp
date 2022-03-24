@@ -33,6 +33,36 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v3
+        with:
+          images: cciobanu98/order-service
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v2
+        with:
+          file: backend/Services/Order/Order.Api/Dockerfile
+          context: backend
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v3
+        with:
+          images: cciobanu98/users-service
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v2
+        with:
+          file: backend/Services/Users.Api/Dockerfile
+          context: backend
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+
       - name: Publish helm menu chart
         uses: stefanprodan/helm-gh-pages@master
         with:

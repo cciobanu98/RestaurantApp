@@ -6,10 +6,22 @@ extensions:
     components-path: "./dapr/components/"
 
 services:
-  - name: menu-servioce
-    project: ../backend/Services/Menu/Menu.Api/Menu.Api.csproj
+  - name: menu-service
+    project: backend/Services/Menu/Menu.Api/Menu.Api.csproj
     bindings:
       - port: 5010
+        containerPort: 80
+        name: http
+  - name: order-service
+    project: backend/Services/Order/Order.Api/Order.Api.csproj
+    bindings:
+      - port: 5011
+        containerPort: 80
+        name: http
+  - name: user-service
+    project: backend/Services/Users.Api/Users.Api.csproj
+    bindings:
+      - port: 5012
         containerPort: 80
         name: http
 
@@ -18,3 +30,14 @@ services:
     bindings:
       - port: 6379
         connectionString: "${host}:${port}"
+  - name: rabbitmq
+    image: rabbitmq:3-management
+    bindings:
+      - name: ui
+        protocol: http
+        port: 15672
+        containerPort: 15672
+      - name: amqp
+        protocol: amqp
+        port: 5672
+        containerPort: 5672

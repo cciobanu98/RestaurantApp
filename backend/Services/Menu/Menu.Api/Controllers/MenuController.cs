@@ -23,10 +23,17 @@ namespace Menu.Api.Controllers
             return Ok(menu);
         }
 
+        [HttpGet("by-name")]
+        public async Task<ActionResult<int>> GetItemIdByMenu(string name)
+        {
+            var menu = await _daprClient.GetStateAsync<MenuData>(storeName, name);
+            return Ok(menu.Id);
+        }
         [HttpPost]
         public async Task<ActionResult> CreateMenu(string name)
         {
-            var menu = new MenuData() { Name = name };
+            Random random = new Random();
+            var menu = new MenuData() { Name = name, Id =  random.Next()};
             await _daprClient.SaveStateAsync(storeName, name, menu);
             return Ok(menu);
         }

@@ -1,0 +1,18 @@
+### Global Values if any ###
+global: {}
+
+### Sub Charts Specific Values ###
+menu-service:
+  enabled: true
+  image:
+    version:
+
+order-service:
+  enabled: true
+  image:
+    version:
+
+users-service:
+  enabled: true
+  image:
+    version:
