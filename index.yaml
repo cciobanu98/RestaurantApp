@@ -11,4 +11,15 @@ entries:
     urls:
     - https://cciobanu98.github.io/RestaurantApp/menu-0.1.0.tgz
     version: 0.1.0
-generated: "2022-03-22T08:15:34.873437654Z"
+  restaurant-app:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-03-24T09:25:35.15187307Z"
+    description: A Helm chart for Kubernetes
+    digest: 783886e94ebeb7197e1879da0958e202300f879c5c8510e3790b76a75f2246b3
+    name: restaurant-app
+    type: application
+    urls:
+    - https://cciobanu98.github.io/RestaurantApp/restaurant-app-0.1.0.tgz
+    version: 0.1.0
+generated: "2022-03-24T09:25:35.150536557Z"
