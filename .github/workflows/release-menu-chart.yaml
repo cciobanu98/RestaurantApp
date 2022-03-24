@@ -68,3 +68,4 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           charts_dir: deployment
+          linting: off
